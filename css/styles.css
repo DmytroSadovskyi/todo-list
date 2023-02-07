@@ -8,20 +8,25 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 30%;
+  min-width: 350px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 20px;
   padding-bottom: 20px;
-  width: 40%;
-  min-width: 450px;
   border-radius: 10px;
   text-align: center;
 
   background-color: #fff;
 }
 
-.form {
+@media screen and (min-width: 480px) {
+  .container {
+    width: 40%;
+    min-width: 450px;
+  }
 }
+
 .form__title {
   margin: 0;
   margin-bottom: 10px;
@@ -48,7 +53,7 @@ body {
 .todo-list__item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
   height: 50px;
   margin-bottom: 8px;
   padding: 5px 10px;
@@ -56,4 +61,23 @@ body {
   background-color: #066acd;
   color: #fff;
   text-align: left;
+}
+
+.delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+}
+.done {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  margin-right: 10px;
+  border: 0;
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: gray;
 }
