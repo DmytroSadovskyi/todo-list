@@ -45,6 +45,7 @@ body {
   height: 45px;
   border: 0;
   border-radius: 4px;
+  cursor: pointer;
 }
 .todo-list {
   list-style: none;
@@ -71,23 +72,16 @@ body {
   align-items: center;
   justify-content: center;
   border: 0;
+  cursor: pointer;
 }
 .done {
   margin-left: auto;
   margin-right: 10px;
   border: 0;
+  cursor: pointer;
 }
 
 .task-done {
   text-decoration: line-through;
   color: gray;
-}
-
-.icon {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
 }
