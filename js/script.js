@@ -20,8 +20,8 @@ if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
 
 function renderTask(task) {
   const newTask = `<li class="todo-list__item" id= "${task.id}"><span>${task.text}</span>
-  <button class= "done" data-action="done"></button><button class="delete-btn"
-   data-action="delete">X</button></li>`;
+  <button class= "done" data-action="done">done</button><button class="delete-btn"
+   data-action="delete"><i class="fa-solid fa-xmark"></i></button></li>`;
   listOfTasks.insertAdjacentHTML('beforeend', newTask);
 }
 
