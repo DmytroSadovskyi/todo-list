@@ -20,8 +20,8 @@ if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
 
 function renderTask(task) {
   const newTask = `<li class="todo-list__item" id= "${task.id}"><span>${task.text}</span>
-  <button class= "done" data-action="done">done</button><button class="delete-btn"
-   data-action="delete"><i class="fa-solid fa-xmark"></i></button></li>`;
+  <button class= "done-btn" data-action="done"><i class="fa-solid fa-check"></i></button><button class="delete-btn"
+   data-action="delete"><i class="fa-solid fa-trash-can"></i></button></li>`;
   listOfTasks.insertAdjacentHTML('beforeend', newTask);
 }
 
@@ -55,7 +55,7 @@ function saveToLocalStorage() {
 
 // функція видалення тасків
 function deleteTask(event) {
-  if (event.target.dataset.action !== 'delete') return;
+  if (!event.target.classList.contains('fa-trash-can')) return;
   const parent = event.target.closest('.todo-list__item');
   parent.remove();
 
@@ -67,10 +67,11 @@ function deleteTask(event) {
 }
 
 function doneTask(event) {
-  if (event.target.dataset.action !== 'done') return;
+  if (!event.target.classList.contains('fa-check')) return;
   const parent = event.target.closest('.todo-list__item');
   const taskSpan = parent.querySelector('span');
   taskSpan.classList.toggle('task-done');
+  parent.classList.toggle('todo-list__item--semi-transparent');
 }
 
 form.addEventListener('submit', addTask);
