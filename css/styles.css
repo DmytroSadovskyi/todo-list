@@ -1,7 +1,7 @@
 body {
   height: 100vh;
   background: #066acd;
-  overflow-y: hidden;
+  height: 100%;
 }
 
 .container {

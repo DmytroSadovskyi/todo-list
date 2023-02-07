@@ -28,6 +28,11 @@ function renderTask(task) {
 // функція додавання нових тасків
 function addTask(e) {
   e.preventDefault();
+
+  if (taskInput.value === '') {
+    alert('Please write your task');
+    return;
+  }
   const task = {
     id: Date.now(),
     text: taskInput.value,
