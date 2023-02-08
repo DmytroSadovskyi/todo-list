@@ -108,11 +108,11 @@ body {
 
 .fa-check {
   color: green;
-  font-size: 13px;
+  font-size: 15px;
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
   .fa-check {
     font-size: 15px;
   }
-}
+} */
