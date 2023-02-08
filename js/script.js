@@ -13,15 +13,19 @@ let tasksArr = [];
 
 if (localStorage.getItem(LOCAL_STORAGE_KEY)) {
   tasksArr = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-  tasksArr.forEach(task => renderTask(task));
 }
-
+tasksArr.forEach(task => renderTask(task));
 // функція для рендеру тасків на сторінці
 
 function renderTask(task) {
-  const newTask = `<li class="todo-list__item" id= "${task.id}"><span>${task.text}</span>
+  const addCssClass = task.checked
+    ? 'task-title task-title--done'
+    : 'task-title';
+
+  const newTask = `<li class="todo-list__item " id= "${task.id}"><span class= "${addCssClass}">${task.text}</span>
   <button class= "done-btn" data-action="done"><i class="fa-solid fa-check"></i></button><button class="delete-btn"
    data-action="delete"><i class="fa-solid fa-trash-can"></i></button></li>`;
+
   listOfTasks.insertAdjacentHTML('beforeend', newTask);
 }
 
@@ -36,7 +40,7 @@ function addTask(e) {
   const task = {
     id: Date.now(),
     text: taskInput.value,
-    checked: false,
+    checked: true,
   };
 
   tasksArr.push(task);
@@ -66,12 +70,20 @@ function deleteTask(event) {
   saveToLocalStorage();
 }
 
+//  функція для відмітки виконаних тасків
 function doneTask(event) {
   if (!event.target.classList.contains('fa-check')) return;
   const parent = event.target.closest('.todo-list__item');
+
+  const id = Number(parent.id);
+  const task = tasksArr.find(task => task.id === id);
+
+  task.checked = !task.checked;
+
   const taskSpan = parent.querySelector('span');
-  taskSpan.classList.toggle('task-done');
-  parent.classList.toggle('todo-list__item--semi-transparent');
+  taskSpan.classList.toggle('task-title--done');
+
+  saveToLocalStorage();
 }
 
 form.addEventListener('submit', addTask);

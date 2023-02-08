@@ -81,12 +81,8 @@ body {
   text-align: left;
 }
 
-.todo-list__item span {
+.task-title {
   color: white;
-}
-
-.todo-list__item--semi-transparent {
-  opacity: 0.8;
 }
 
 .delete-btn {
@@ -114,9 +110,9 @@ body {
   border-radius: 3px;
 }
 
-.task-done {
+.task-title--done {
   text-decoration: line-through;
-  color: gray;
+  color: white;
 }
 
 .fa-trash-can {
