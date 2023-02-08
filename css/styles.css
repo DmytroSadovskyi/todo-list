@@ -112,7 +112,10 @@ body {
 
 .task-title--done {
   text-decoration: line-through;
-  color: white;
+}
+
+.todo-list__item--done {
+  opacity: 0.6;
 }
 
 .fa-trash-can {
