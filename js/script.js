@@ -21,14 +21,12 @@ function renderTask(task) {
   const addCssClass = task.checked
     ? 'task-title task-title--done'
     : 'task-title';
-  const itemClassAdd = task.checked
-    ? 'todo-list__item todo-list__item--done'
-    : 'todo-list__item';
-  const newTask = `<li class="${itemClassAdd}" id= "${task.id}"><span class= "${addCssClass}">${task.text}</span>
+
+  const newTask = `<li class="todo-list__item" id= "${task.id}"><span class= "${addCssClass}">${task.text}</span>
   <button class= "done-btn" data-action="done"><i class="fa-solid fa-check"></i></button><button class="delete-btn"
    data-action="delete"><i class="fa-solid fa-trash-can"></i></button></li>`;
 
-  listOfTasks.insertAdjacentHTML('beforeend', newTask);
+  listOfTasks.insertAdjacentHTML('afterbegin', newTask);
 }
 
 // функція додавання нових тасків
@@ -84,7 +82,6 @@ function doneTask(event) {
 
   const taskSpan = parent.querySelector('span');
   taskSpan.classList.toggle('task-title--done');
-  parent.classList.toggle('todo-list__item--done');
 
   saveToLocalStorage();
 }
